@@ -1,4 +1,4 @@
-package org.lasencinas;
+package enzinium;
 
 import static org.junit.Assert.assertTrue;
 
