@@ -22,6 +22,40 @@ public class TokenContractTest {
         contract.setSymbol("Hola");
         assertEquals("Hola", contract.getSymbol());
         contract.setTotalSupply(100);
-        assertEquals(100, contract.getTotalSupply(),0);
+        assertEquals(100, contract.totalSupply(),0);
+    }
+
+
+    @Test
+    public void mapTest(){
+        Address rick = new Address();
+        rick.generateKeyPair();
+        TokenContract ricknillos = new TokenContract(rick);
+        ricknillos.addOwner(rick.getPK(), 100d);
+        assertNotNull(ricknillos.getBalances());
+        assertTrue(ricknillos.getBalances().containsKey(rick.getPK()));
+
     }
 }
+/*
+    @Test
+    public void payable_test() {
+
+        Address rick = new Address();
+        rick.generateKeyPair();
+        TokenContract ricknillos = new TokenContract(rick);
+        ricknillos.addOwner(rick.getPK(), 100d);
+        Address morty = new Address();
+        morty.generateKeyPair();
+
+        morty.addEZI(20d);
+
+        // verifico la transferencia de entradas
+        ricknillos.payable(morty.getPK(), morty.getBalance());
+        assertEquals(4d, ricknillos.balanceOf(morty.getPK()), 0d);
+
+        // verifico la trasnferencia de EZI
+        assertEquals(20d, ricknillos.owner().getBalance(), 0d);
+    }
+}
+}*/
