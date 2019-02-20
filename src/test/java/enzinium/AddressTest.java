@@ -10,8 +10,16 @@ public class AddressTest
 {
     @Test
     public void addressTestClass(){
-        Address address = new Adress();
+        Address address = new Address();
         assertNotNull(address);
 
+    }
+
+    @Test
+    public void clavesTest(){
+        Address address = new Address();
+        address.generateKeyPair();
+        assertNotNull(address.getAddress());
+        assertNotNull(address.getSKey());
     }
 }
