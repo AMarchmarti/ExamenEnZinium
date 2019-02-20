@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class TokenContract {
 
+        private PublicKey propietario = null;
         private Address PK = null;
         private String name = null;
         private double totalSUpply = 0d;
@@ -35,6 +36,10 @@ public class TokenContract {
             this.balances.put(key, balance);
         }
 
+        public void setPropietario(PublicKey key){
+            this.propietario = key;
+        }
+
     /*----------------------Getters-----------------------*/
 
         public String getName() {
@@ -57,6 +62,10 @@ public class TokenContract {
             return this.balances;
         }
 
+        public PublicKey getPropietario() {
+            return propietario;
+        }
+
     /*--------------------Lógica-------------------------*/
 
         @Override
@@ -69,10 +78,11 @@ public class TokenContract {
 
 
         public void addOwner(PublicKey key, Double balance){
+                setPropietario(key);
                 if (!getBalances().containsKey(key)) {
                     setBalances(key, balance);
                 }else{
-                    setBalances(key, totalSupply());
+                    setBalances(getPropietario(), totalSupply());
                 }
                 }
 
@@ -98,6 +108,8 @@ public class TokenContract {
 
         public void transfer(PublicKey key, Double cantidad){
             setBalances(key, cantidad);
+            setTotalSupply(getBalances().get(getPropietario()) - cantidad);
+            addOwner(getPropietario(), cantidad);
 
         }
 }
