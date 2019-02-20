@@ -8,7 +8,7 @@ public class TokenContract {
 
         private Address PK = null;
         private String name = null;
-        private double totalSupply = 0d;
+        private double totalSUpply = 0d;
         private String symboll = null;
         private Map<PublicKey, Double> balances = new LinkedHashMap<>();
 
@@ -24,16 +24,16 @@ public class TokenContract {
         }
 
         public void setTotalSupply(double numentradas) {
-            this.totalSupply = numentradas;
+            this.totalSUpply = numentradas;
         }
 
         public void setSymbol(String symboll) {
             this.symboll = symboll;
         }
 
-    public void setBalances(PublicKey key, Double balance) {
-        this.balances.put(key, balance);
-    }
+        public void setBalances(PublicKey key, Double balance) {
+            this.balances.put(key, balance);
+        }
 
     /*----------------------Getters-----------------------*/
 
@@ -42,7 +42,7 @@ public class TokenContract {
         }
 
         public double totalSupply() {
-            return this.totalSupply;
+            return this.totalSUpply;
         }
 
         public String symbol() {
@@ -72,7 +72,7 @@ public class TokenContract {
                 if (!getBalances().containsKey(key)) {
                     setBalances(key, balance);
                 }else{
-                    setBalances(key, 100.0);
+                    setBalances(key, totalSupply());
                 }
                 }
 
@@ -93,5 +93,11 @@ public class TokenContract {
                 }
             }
             return 0d;
+        }
+
+
+        public void transfer(PublicKey key, Double cantidad){
+            setBalances(key, cantidad);
+
         }
 }
