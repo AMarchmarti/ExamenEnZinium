@@ -2,9 +2,7 @@ package enzinium;
 
 import java.security.PublicKey;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class TokenContract {
 
@@ -33,8 +31,8 @@ public class TokenContract {
             this.symboll = symboll;
         }
 
-    public void setBalances(Map<PublicKey, Double> balances) {
-        this.balances = balances;
+    public void setBalances(PublicKey key, Double balance) {
+        this.balances.put(key, balance);
     }
 
     /*----------------------Getters-----------------------*/
@@ -47,7 +45,7 @@ public class TokenContract {
             return this.totalSupply;
         }
 
-        public String getSymbol() {
+        public String symbol() {
             return this.symboll;
         }
 
@@ -64,20 +62,36 @@ public class TokenContract {
         @Override
         public String toString(){
             return "\n" + "name = " + getName() +"\n"+
-                    "symbol = " + getSymbol() + "\n" +
+                    "symbol = " + symbol() + "\n" +
                     "totalSupply = " + totalSupply() + "\n"+
                     "owner Pk = " + getPK().hashCode();
         }
 
 
         public void addOwner(PublicKey key, Double balance){
-            Map<PublicKey, Double> entrada = new LinkedHashMap<>();
-            for (PublicKey pKey : entrada.keySet())
-                if (key.equals(pKey)) {
-                    continue;
-                }else {
-                    entrada.put(key, balance);
+                if (!getBalances().containsKey(key)) {
+                    setBalances(key, balance);
+                }else{
+                    setBalances(key, 100.0);
                 }
-            setBalances(entrada);
+                }
+
+
+
+        public Integer numOwners(){
+            int count = 0;
+            for(PublicKey key : getBalances().keySet()){
+                count += 1;
+            }
+            return count;
+        }
+
+        public Double balanceOf(PublicKey key){
+            for (PublicKey pkey : getBalances().keySet()){
+                if (pkey.equals(key)){
+                    return getBalances().get(pkey);
+                }
+            }
+            return 0d;
         }
 }
