@@ -59,7 +59,7 @@ public class App {
         System.out.println("\n" + "Address de Jen" + "\n" +
                 "==============="        );
         System.out.println(jen.toString());
-/*
+
         /**
          * Crea una contrato inteligente de tipo TokenContract
          * en nuestro sistema para que Rick pueda vender 100
@@ -84,7 +84,7 @@ public class App {
          * totalSupply()
          * @return el total de unidades de este token que actualmente existen.
          */
-/*
+
         TokenContract ricknillos = new TokenContract(rick);
         ricknillos.setName("Ricknillos");
         ricknillos.setSymbol("RNiLL");
@@ -114,10 +114,10 @@ public class App {
          * @param PublicKey del propietario
          * @param cantidad de tokens que posee
          */
-/*
+
         ricknillos.addOwner(rick.getPK(), ricknillos.totalSupply());
         // verifica que Rick no se actualiza una vez que ya existe en el balance
-        ricknillos.addOwner(rick.getPK(), 500d);
+        ricknillos.addOwner(rick.getPK(), 500d);}
 
         /**
          * Consulta los balances

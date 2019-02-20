@@ -1,16 +1,18 @@
 package enzinium;
 
 import java.security.PublicKey;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class TokenContract {
 
         private Address PK = null;
-        private Set<Address> entradas = new LinkedHashSet<>();
         private String name = null;
         private double totalSupply = 0d;
         private String symboll = null;
+        private Map<PublicKey, Double> balances = new LinkedHashMap<>();
 
         //Constructor
         public TokenContract(Address address){
@@ -31,13 +33,17 @@ public class TokenContract {
             this.symboll = symboll;
         }
 
-/*----------------------Getters-----------------------*/
+    public void setBalances(Map<PublicKey, Double> balances) {
+        this.balances = balances;
+    }
+
+    /*----------------------Getters-----------------------*/
 
         public String getName() {
             return this.name;
         }
 
-        public double getTotalSupply() {
+        public double totalSupply() {
             return this.totalSupply;
         }
 
@@ -49,13 +55,29 @@ public class TokenContract {
             return PK.getPK();
         }
 
-/*--------------------Lógica-------------------------*/
+        public Map<PublicKey, Double> getBalances() {
+            return this.balances;
+        }
+
+    /*--------------------Lógica-------------------------*/
 
         @Override
         public String toString(){
             return "\n" + "name = " + getName() +"\n"+
                     "symbol = " + getSymbol() + "\n" +
-                    "totalSupply = " + getTotalSupply() + "\n"+
+                    "totalSupply = " + totalSupply() + "\n"+
                     "owner Pk = " + getPK().hashCode();
+        }
+
+
+        public void addOwner(PublicKey key, Double balance){
+            Map<PublicKey, Double> entrada = new LinkedHashMap<>();
+            for (PublicKey pKey : entrada.keySet())
+                if (key.equals(pKey)) {
+                    continue;
+                }else {
+                    entrada.put(key, balance);
+                }
+            setBalances(entrada);
         }
 }
