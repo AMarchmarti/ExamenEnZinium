@@ -7,6 +7,7 @@ public class Address {
 
         private PublicKey PK = null;
         private PrivateKey SK = null;
+        private double balance = 0d;
 
 /*------------------Setters-------------------------------------------*/
 
@@ -18,7 +19,11 @@ public class Address {
             this.SK = SK;
         }
 
-/*----------------------Getters----------------------------------*/
+        public void setBalance(double balance) {
+            this.balance = balance;
+        }
+
+    /*----------------------Getters----------------------------------*/
 
         public PublicKey getPK() {
             return PK;
@@ -28,10 +33,20 @@ public class Address {
             return SK;
         }
 
-/*--------------------Lógica-----------------------------------*/
+        public double getBalance() {
+            return this.balance;
+        }
+
+    /*--------------------Lógica-----------------------------------*/
 
         public void generateKeyPair(){
             setPK(GenSig.generateKeyPair().getPublic());
             setSK(GenSig.generateKeyPair().getPrivate());
+        }
+
+        @Override
+        public String toString(){
+            return "\n" + "PK = " + getPK().hashCode() +  "\n"+
+                    "Balance = " + getBalance() + " EZI" + "\n";
         }
 }
