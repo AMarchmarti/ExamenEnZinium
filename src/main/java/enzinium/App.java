@@ -117,7 +117,7 @@ public class App {
 
         ricknillos.addOwner(rick.getPK(), ricknillos.totalSupply());
         // verifica que Rick no se actualiza una vez que ya existe en el balance
-        ricknillos.addOwner(rick.getPK(), 500d);}
+        ricknillos.addOwner(rick.getPK(), 500d);
 
         /**
          * Consulta los balances
@@ -131,7 +131,7 @@ public class App {
          * Dada una direccion, devuelve su balance de tokens. Si no existe
          * el propietario, devuelve cero.
          */
-/*
+
         System.out.println("\n" + "Consulta de balances" + "\n" +
                 "===================="        );
 
@@ -165,7 +165,7 @@ public class App {
          * @param una condicion que ha de verificarse (ser cierta)
          * Lanza una EXCEPCION si no se cumple la condicion
          */
-/*
+
         System.out.println("\n" + "Transferencia de entradas" + "\n" +
                 "========================="        );
 
@@ -195,7 +195,7 @@ public class App {
         System.out.println("2 entradas mas para Morty: "
                 + ricknillos.balanceOf(morty.getPK())
                 + " "
-                + ricknillos.symbol());
+                + ricknillos.symbol());}
 
         /**
          * A veces, hay reventa ;)
@@ -238,7 +238,7 @@ public class App {
 /*
         System.out.println("\n" + "Lista de compradores" + "\n" +
                 "===================="        );
-        ricknillos.owners();
+        ricknillos.owners();}
 
         /**
          * Calcula el numero de asistentes al concierto (excluyendo a Rick),

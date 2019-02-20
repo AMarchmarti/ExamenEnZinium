@@ -1,7 +1,9 @@
 package enzinium;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TokenContract {
@@ -107,9 +109,21 @@ public class TokenContract {
 
 
         public void transfer(PublicKey key, Double cantidad){
-            setBalances(key, cantidad);
+            if (!getBalances().containsKey(key)) {
+                setBalances(key, cantidad);
+            }else{
+                setBalances(key, getBalances().get(key) + cantidad);
+            }
             setTotalSupply(getBalances().get(getPropietario()) - cantidad);
             addOwner(getPropietario(), cantidad);
 
         }
+
+
+        public void refill(Double cantidad){
+            if (getBalances().get(getPropietario()) < cantidad){
+                ;
+            }
+        }
+
 }
