@@ -48,7 +48,24 @@ public class TokenContractTest {
         morty.generateKeyPair();
         ricknillos.transfer(morty.getPK(), 2.0);
         assertEquals(2, ricknillos.getBalances().get(morty.getPK()), 0);
+        assertEquals(98, ricknillos.getBalances().get(rick.getPK()),0);
 
+    }
+
+    @Test
+    public void reventaTest(){
+        Address rick = new Address();
+        rick.generateKeyPair();
+        TokenContract ricknillos = new TokenContract(rick);
+        ricknillos.addOwner(rick.getPK(), 100d);
+        Address morty = new Address();
+        morty.generateKeyPair();
+        ricknillos.transfer(morty.getPK(), 4.0);
+        Address jen = new Address();
+        jen.generateKeyPair();
+        ricknillos.transfer(morty.getPK(), jen.getPK(), 1.0);
+        assertEquals(3, ricknillos.getBalances().get(morty.getPK()), 0);
+        assertEquals(1, ricknillos.getBalances().get(jen.getPK()), 0);
     }
 }
 /*

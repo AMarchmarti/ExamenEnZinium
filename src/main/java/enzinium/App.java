@@ -180,7 +180,7 @@ public class App {
                 + ricknillos.balanceOf(morty.getPK())
                 + " "
                 + ricknillos.symbol());
-
+/*
         // verifica que require falla si no hay tokens suficientes en el balance de Rick
         ricknillos.transfer(morty.getPK(), 300d);
 
@@ -188,14 +188,14 @@ public class App {
                 + ricknillos.balanceOf(morty.getPK())
                 + " "
                 + ricknillos.symbol());
-
+*/
         // Morty vuelve a comprar un par de entradas mas
         ricknillos.transfer(morty.getPK(), 2d);
 
         System.out.println("2 entradas mas para Morty: "
                 + ricknillos.balanceOf(morty.getPK())
                 + " "
-                + ricknillos.symbol());}
+                + ricknillos.symbol());
 
         /**
          * A veces, hay reventa ;)
@@ -210,7 +210,7 @@ public class App {
          * @param recipient PK
          * @param cantidad de tokens
          */
-/*
+
         System.out.println("\n" + "Reventa de entradas" + "\n" +
                 "==================="        );
 
@@ -223,7 +223,7 @@ public class App {
         System.out.println("Entradas de Jen: "
                 + ricknillos.balanceOf(jen.getPK())
                 + " "
-                + ricknillos.symbol());
+                + ricknillos.symbol());}
 
         /**
          * Llega el dia del concierto y Rick quiere
