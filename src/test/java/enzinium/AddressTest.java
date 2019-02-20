@@ -19,7 +19,7 @@ public class AddressTest
     public void clavesTest(){
         Address address = new Address();
         address.generateKeyPair();
-        assertNotNull(address.getAddress());
-        assertNotNull(address.getSKey());
+        assertNotNull(address.getPK());
+        assertNotNull(address.getSK());
     }
 }
