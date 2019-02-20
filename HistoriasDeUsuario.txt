@@ -1,3 +1,3 @@
 ¿Quien? El usuario
-¿Quiere? saber cuantas entrads tiene vendidas
-¿Para? saber cuantas le quedan y tiene vendidads
+¿Quiere? comprar entradas
+¿Para? tenerlas 
