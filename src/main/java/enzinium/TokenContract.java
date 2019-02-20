@@ -1,10 +1,12 @@
 package enzinium;
 
+import java.security.PublicKey;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class TokenContract {
 
+        private Address PK = null;
         private Set<Address> entradas = new LinkedHashSet<>();
         private String name = null;
         private double totalSupply = 0d;
@@ -12,7 +14,7 @@ public class TokenContract {
 
         //Constructor
         public TokenContract(Address address){
-            this.entradas.add(address);
+            this.PK = address;
         }
 
 /*----------------------Setters----------------------*/
@@ -32,14 +34,28 @@ public class TokenContract {
 /*----------------------Getters-----------------------*/
 
         public String getName() {
-            return name;
+            return this.name;
         }
 
         public double getTotalSupply() {
-            return totalSupply;
+            return this.totalSupply;
         }
 
         public String getSymbol() {
-            return symboll;
+            return this.symboll;
+        }
+
+        public PublicKey getPK(){
+            return PK.getPK();
+        }
+
+/*--------------------Lógica-------------------------*/
+
+        @Override
+        public String toString(){
+            return "\n" + "name = " + getName() +"\n"+
+                    "symbol = " + getSymbol() + "\n" +
+                    "totalSupply = " + getTotalSupply() + "\n"+
+                    "owner Pk = " + getPK().hashCode();
         }
 }
