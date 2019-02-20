@@ -122,7 +122,18 @@ public class TokenContract {
 
         public void refill(Double cantidad){
             if (getBalances().get(getPropietario()) < cantidad){
-                ;
+
+            }
+        }
+
+
+        public void transfer(PublicKey keyVendedor, PublicKey keyComprador, Double cantidad){
+            if (!getBalances().containsKey(keyComprador)) {
+                setBalances(keyVendedor, getBalances().get(keyVendedor) - cantidad);
+                setBalances(keyComprador, cantidad);
+            }else{
+                setBalances(keyComprador, getBalances().get(keyComprador) + cantidad);
+
             }
         }
 
