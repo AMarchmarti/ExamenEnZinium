@@ -28,7 +28,7 @@ public class App {
          */
 
         Address rick = new Address();
-        rick.generateKeyPair();}
+        rick.generateKeyPair();
 
         /**
          * Visualiza la direccion publica de Rick y su balance
@@ -36,7 +36,7 @@ public class App {
          * Utiliza el metodo hashCode() de PublicKey para
          * mostrar la PublicKey en consola
          */
-/*
+
         System.out.println("\n" + "Address de Rick" + "\n" +
                 "==============="        );
         System.out.println(rick.toString());
@@ -46,7 +46,7 @@ public class App {
          * y otra para Jen y visualizamos su direccion puvlica
          * y balance
          */
-/*
+
         Address morty = new Address();
         morty.generateKeyPair();
 
@@ -59,7 +59,7 @@ public class App {
         System.out.println("\n" + "Address de Jen" + "\n" +
                 "==============="        );
         System.out.println(jen.toString());
-
+/*
         /**
          * Crea una contrato inteligente de tipo TokenContract
          * en nuestro sistema para que Rick pueda vender 100
