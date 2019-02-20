@@ -1,0 +1,3 @@
+¿Quien? El usuario
+¿Quiere? Necesita unas direcciones 
+¿Para? Para poder pedir entradas
