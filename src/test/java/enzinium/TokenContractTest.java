@@ -20,7 +20,7 @@ public class TokenContractTest {
         contract.setName("hola");
         assertEquals("hola", contract.getName());
         contract.setSymbol("Hola");
-        assertEquals("Hola", contract.getSymbol());
+        assertEquals("Hola", contract.symbol());
         contract.setTotalSupply(100);
         assertEquals(100, contract.totalSupply(),0);
     }
@@ -34,6 +34,7 @@ public class TokenContractTest {
         ricknillos.addOwner(rick.getPK(), 100d);
         assertNotNull(ricknillos.getBalances());
         assertTrue(ricknillos.getBalances().containsKey(rick.getPK()));
+        assertTrue(ricknillos.getBalances().containsValue(100.0));
 
     }
 }
